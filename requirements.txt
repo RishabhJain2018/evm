@@ -1,0 +1,5 @@
+django==1.8.2
+django-allauth==0.21.0
+django-spaghetti-and-meatballs==0.1.1
+django-import-export==0.4.2
+flake8
