@@ -20,7 +20,7 @@ APP_DIRS = os.path.join(BASE_DIR, 'evm')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECURITY WARNING: keep the secret key used in production secret!si
 SECRET_KEY = '9=mubt1zdi2puvp3t1ql_2_p)m7_++=bt=366-$z0#o4ie(9c3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -38,11 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-    'django.contrib.sites',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,7 +77,7 @@ TEMPLATES = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auuth.backends.ModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
         )
 
@@ -110,10 +110,21 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOGIN_REDIRECT_URL = 'http://localhost:8000/home'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
 
-SOCIALACCOUNT_PROVIDERS = {'google':{}}
+SOCIALACCOUNT_PROVIDERS = {'google':
+    {
+    'SCOPE':['email'],
+    'AUTH_PARAMS' : {'access_type':'online'}
+    }
+}
+
+SITE_ID = 1
+
+GOOGLE_OAUTH2_CLIENT_ID = "174878033286-khmjf9kv1p8mhn0gl65frc976e2udi0v.apps.googleusercontent.com"
+GOOGLE_OAUTH2_CLIENT_SECRET = "5_jkrm0FVHcedf_6R9IId0_I"
