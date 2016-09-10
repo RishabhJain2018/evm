@@ -81,7 +81,9 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
         )
 
-LOGIN_REDIRECT_URL = "/dashboard"
+# LOGIN_REDIRECT_URL = 'http://localhost:8000/accounts/google/login/callback/'
+LOGIN_REDIRECT_URL = 'http://localhost:8000/home/'
+
 
 WSGI_APPLICATION = 'evm.wsgi.application'
 
@@ -110,8 +112,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-LOGIN_REDIRECT_URL = 'http://localhost:8000/home'
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
@@ -119,12 +119,9 @@ STATIC_URL = '/static/'
 
 SOCIALACCOUNT_PROVIDERS = {'google':
     {
-    'SCOPE':['email'],
+    'SCOPE':['profile','email'],
     'AUTH_PARAMS' : {'access_type':'online'}
     }
 }
 
 SITE_ID = 1
-
-GOOGLE_OAUTH2_CLIENT_ID = "174878033286-khmjf9kv1p8mhn0gl65frc976e2udi0v.apps.googleusercontent.com"
-GOOGLE_OAUTH2_CLIENT_SECRET = "5_jkrm0FVHcedf_6R9IId0_I"
