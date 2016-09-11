@@ -81,7 +81,6 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
         )
 
-# LOGIN_REDIRECT_URL = 'http://localhost:8000/accounts/google/login/callback/'
 LOGIN_REDIRECT_URL = 'http://localhost:8000/home/'
 
 
@@ -119,7 +118,7 @@ STATIC_URL = '/static/'
 
 SOCIALACCOUNT_PROVIDERS = {'google':
     {
-    'SCOPE':['profile','email'],
+    'SCOPE':['profile','email',],
     'AUTH_PARAMS' : {'access_type':'online'}
     }
 }
