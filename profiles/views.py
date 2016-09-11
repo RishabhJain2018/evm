@@ -10,3 +10,4 @@ class Home(View):
 	'''
 	def get(self, request):
 		return render(request,'profiles/base.html')
+
