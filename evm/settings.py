@@ -43,6 +43,9 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'profiles',
+    'attendance',
+    'event',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -81,7 +84,7 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend',
         )
 
-LOGIN_REDIRECT_URL = 'http://localhost:8000/home/'
+LOGIN_REDIRECT_URL = 'http://localhost:8000/profile/'
 
 
 WSGI_APPLICATION = 'evm.wsgi.application'
@@ -125,10 +128,11 @@ SOCIALACCOUNT_PROVIDERS = {'google':
 
 SITE_ID = 1
 
-AUTH_USER_MODEL = 'auth.user'
+# AUTH_USER_MODEL = 'auth.user'
 
+#allauth settings
 ACCOUNT_AUTHENTICATION_METHOD = "username"
 ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_PASSWORD_MIN_LENGTH = 1
-
+ACCOUNT_LOGOUT_REDIRECT_URL = "/"

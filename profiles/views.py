@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.views.generic import View
 from django.http import HttpResponse
 from braces.views import LoginRequiredMixin
+from allauth.account.views import SignupView
+from allauth.account.forms import LoginForm
+
 
 def bad_request_404(request):
     response = render(request, '404.html')
@@ -21,5 +24,45 @@ class Home(View):
     '''
 
     def get(self, request):
-        template_name = 'profiles/base.html'
+        template_name = 'index.html'
+        return render(request, template_name)
+
+
+class Blog(View):
+    '''
+    This is the Blog View.
+    '''
+
+    def get(self, request):
+        template_name = 'blog.html'
+        return render(request, template_name)
+
+
+class About_us(View):
+    '''
+    This is the about us view.
+    '''
+
+    def get(self, request):
+        template_name = 'about.html'
+        return render(request, template_name)
+
+
+class Events(View):
+    '''
+    This is the Events View.
+    '''
+
+    def get(self, request):
+        template_name = 'events.html'
+        return render(request, template_name)
+
+
+class Dashboard(LoginRequiredMixin, View):
+    '''
+    This is the Dashboard View.
+    '''
+
+    def get(self, request):
+        template_name = 'profiles/dashboard.html'
         return render(request, template_name)
