@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import config_keys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP_DIRS = os.path.join(BASE_DIR, 'evm')
@@ -136,3 +137,10 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_PASSWORD_MIN_LENGTH = 1
 ACCOUNT_LOGOUT_REDIRECT_URL = "/"
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = config_keys.USERNAME
+EMAIL_HOST_PASSWORD = config_keys.PASSWORD
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
